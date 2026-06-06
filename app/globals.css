@@ -1,0 +1,311 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import "tailwindcss";
+
+/* ─── Premium Emerald + Platinum Design Tokens ─── */
+:root {
+  --bg-primary: #060a10;
+  --bg-secondary: #0a1018;
+  --bg-tertiary: #0f1722;
+
+  /* Emerald accent palette */
+  --accent-50: #ecfdf5;
+  --accent-100: #d1fae5;
+  --accent-200: #a7f3d0;
+  --accent-300: #6ee7b7;
+  --accent-400: #34d399;
+  --accent-500: #10b981;
+  --accent-600: #059669;
+  --accent-700: #047857;
+  --accent-800: #065f46;
+  --accent-900: #064e3b;
+
+  /* Platinum / warm white palette */
+  --plat-50: #fafbfc;
+  --plat-100: #f0f2f5;
+  --plat-200: #dce0e8;
+  --plat-300: #b8bfcc;
+  --plat-400: #8b95a8;
+  --plat-500: #64708a;
+  --plat-600: #4a5468;
+  --plat-700: #374152;
+  --plat-800: #252d3c;
+  --plat-900: #171e2c;
+
+  --glass-bg: rgba(10, 16, 24, 0.6);
+  --glass-border: rgba(16, 185, 129, 0.08);
+  --glass-border-hover: rgba(16, 185, 129, 0.18);
+  --glass-shine: rgba(255, 255, 255, 0.025);
+
+  --font-display: 'Playfair Display', serif;
+  --font-body: 'DM Sans', sans-serif;
+}
+
+/* ─── Tailwind Theme Extension ─── */
+@theme inline {
+  --color-background: var(--bg-primary);
+  --color-foreground: var(--plat-100);
+  --font-sans: var(--font-body);
+  --color-accent-50: var(--accent-50);
+  --color-accent-100: var(--accent-100);
+  --color-accent-200: var(--accent-200);
+  --color-accent-300: var(--accent-300);
+  --color-accent-400: var(--accent-400);
+  --color-accent-500: var(--accent-500);
+  --color-accent-600: var(--accent-600);
+  --color-accent-700: var(--accent-700);
+  --color-accent-800: var(--accent-800);
+  --color-accent-900: var(--accent-900);
+  --color-plat-50: var(--plat-50);
+  --color-plat-100: var(--plat-100);
+  --color-plat-200: var(--plat-200);
+  --color-plat-300: var(--plat-300);
+  --color-plat-400: var(--plat-400);
+  --color-plat-500: var(--plat-500);
+  --color-plat-600: var(--plat-600);
+  --color-plat-700: var(--plat-700);
+  --color-plat-800: var(--plat-800);
+  --color-plat-900: var(--plat-900);
+  --color-bg-primary: var(--bg-primary);
+  --color-bg-secondary: var(--bg-secondary);
+  --color-bg-tertiary: var(--bg-tertiary);
+  --color-glass-bg: var(--glass-bg);
+  --color-glass-border: var(--glass-border);
+  --color-glass-border-hover: var(--glass-border-hover);
+  --color-glass-shine: var(--glass-shine);
+}
+
+/* ─── Global Reset & Base ─── */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  background: var(--bg-primary);
+  color: var(--plat-100);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  line-height: 1.7;
+  letter-spacing: 0.01em;
+}
+
+/* ─── Custom Scrollbar ─── */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--accent-700), var(--accent-600));
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--accent-500), var(--accent-400));
+}
+
+/* ─── Glassmorphism Utility ─── */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(28px) saturate(1.5);
+  -webkit-backdrop-filter: blur(28px) saturate(1.5);
+  border: 1px solid var(--glass-border);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 var(--glass-shine);
+}
+
+.glass-card {
+  background: rgba(10, 16, 24, 0.65);
+  backdrop-filter: blur(24px) saturate(1.3);
+  -webkit-backdrop-filter: blur(24px) saturate(1.3);
+  border: 1px solid var(--glass-border);
+  box-shadow:
+    0 12px 48px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 var(--glass-shine);
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.glass-card:hover {
+  border-color: var(--glass-border-hover);
+  box-shadow:
+    0 24px 64px rgba(0, 0, 0, 0.55),
+    0 0 48px rgba(16, 185, 129, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+/* ─── Accent Gradient Text ─── */
+.text-accent-gradient {
+  background: linear-gradient(135deg, var(--accent-300) 0%, var(--accent-400) 50%, var(--accent-200) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-plat-gradient {
+  background: linear-gradient(135deg, var(--plat-200), var(--plat-400), var(--plat-300));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── Accent Glow Effect ─── */
+.accent-glow {
+  box-shadow:
+    0 0 20px rgba(16, 185, 129, 0.12),
+    0 0 40px rgba(16, 185, 129, 0.06);
+}
+
+.accent-glow-text {
+  text-shadow: 0 0 40px rgba(16, 185, 129, 0.2), 0 0 80px rgba(16, 185, 129, 0.08);
+}
+
+/* ─── Display Font ─── */
+.font-display {
+  font-family: var(--font-display);
+}
+
+/* ─── Ambient Background Effects ─── */
+.ambient-gradient {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse 60% 40% at 10% 0%, rgba(16, 185, 129, 0.025) 0%, transparent 50%),
+    radial-gradient(ellipse 50% 40% at 90% 90%, rgba(16, 185, 129, 0.015) 0%, transparent 50%),
+    radial-gradient(ellipse 40% 30% at 50% 50%, rgba(16, 185, 129, 0.01) 0%, transparent 50%);
+}
+
+/* ─── Noise Texture Overlay ─── */
+.noise-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.02;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* ─── Button Styles ─── */
+.btn-accent {
+  position: relative;
+  background: linear-gradient(135deg, var(--accent-600), var(--accent-500), var(--accent-400));
+  color: #fff;
+  font-weight: 600;
+  font-family: var(--font-body);
+  border: none;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  letter-spacing: 0.08em;
+}
+
+.btn-accent::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.7s ease;
+}
+
+.btn-accent:hover::before {
+  left: 100%;
+}
+
+.btn-accent:hover {
+  box-shadow:
+    0 8px 30px rgba(16, 185, 129, 0.3),
+    0 0 50px rgba(16, 185, 129, 0.1);
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  position: relative;
+  background: transparent;
+  color: var(--plat-200);
+  font-weight: 500;
+  font-family: var(--font-body);
+  border: 1px solid rgba(16, 185, 129, 0.15);
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  letter-spacing: 0.08em;
+}
+
+.btn-outline:hover {
+  border-color: var(--accent-500);
+  color: var(--accent-300);
+  box-shadow: 0 0 30px rgba(16, 185, 129, 0.06);
+  transform: translateY(-2px);
+}
+
+/* ─── Section Divider ─── */
+.section-divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(16,185,129,0.15), rgba(16,185,129,0.25), rgba(16,185,129,0.15), transparent);
+  opacity: 0.6;
+}
+
+/* ─── Typewriter cursor blink ─── */
+@keyframes blink-cursor {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes gentle-pulse {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes line-draw {
+  0% { width: 0; }
+  100% { width: 100%; }
+}
+
+/* ─── Input Focus Styles ─── */
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--accent-500) !important;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1), 0 0 24px rgba(16, 185, 129, 0.05);
+}
+
+/* ─── Selection Color ─── */
+::selection {
+  background: rgba(16, 185, 129, 0.25);
+  color: var(--plat-50);
+}
+
+/* ─── Responsive section padding ─── */
+@media (max-width: 768px) {
+  .section-container {
+    padding: 0 1.25rem;
+  }
+}
