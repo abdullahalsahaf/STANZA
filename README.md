@@ -53,7 +53,6 @@ stanza-site/
 │   ├── layout.js              # Meta configuration, document wrappers
 │   └── page.js                # Core landing page index
 ├── public/
-│   ├── logo.png               # High-resolution premium logo PNG asset
 │   └── ...
 ├── package.json
 └── README.md
